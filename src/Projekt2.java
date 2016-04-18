@@ -158,20 +158,22 @@ public class Projekt2 extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 
-                
+                /*
                 Projekt2 głowne = new Projekt2();
                 Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
                 głowne.setLocation(d.width/2-400, d.height/2-300);
                 głowne.setDefaultCloseOperation(EXIT_ON_CLOSE);
                 głowne.setVisible(true);
                 /*
+                 */
+                
                 PLansza_frame frame = new PLansza_frame();
                 Dimension d2 = Toolkit.getDefaultToolkit().getScreenSize();
-                frame.setLocation(d2.width/2-700, d2.height/2-450);
-                frame.setSize(1400, 900);
+                frame.setLocation(d2.width/2-600, d2.height/2-325);
+                frame.setSize(1200, 650);
                 frame.setVisible(true);
                 frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                */
+               
                 
        
             }
