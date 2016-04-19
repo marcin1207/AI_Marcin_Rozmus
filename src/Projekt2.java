@@ -158,14 +158,13 @@ public class Projekt2 extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 
-                /*
+                
                 Projekt2 głowne = new Projekt2();
                 Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
                 głowne.setLocation(d.width/2-400, d.height/2-300);
                 głowne.setDefaultCloseOperation(EXIT_ON_CLOSE);
                 głowne.setVisible(true);
                 /*
-                 */
                 
                 PLansza_frame frame = new PLansza_frame();
                 Dimension d2 = Toolkit.getDefaultToolkit().getScreenSize();
@@ -173,7 +172,7 @@ public class Projekt2 extends javax.swing.JFrame {
                 frame.setSize(1200, 650);
                 frame.setVisible(true);
                 frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-               
+               */
                 
        
             }

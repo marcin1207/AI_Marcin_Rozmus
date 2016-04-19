@@ -8,8 +8,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
-
 public class Rejestracja extends javax.swing.JFrame {
 
     /**
@@ -139,46 +137,47 @@ public class Rejestracja extends javax.swing.JFrame {
             PSt.setString(1, imie_box.getText());
             PSt.setString(2, login_box.getText());
             PSt.setString(3, String.valueOf(password_box.getPassword()));
-            PSt.execute();
-            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gra", "root", "student");
-            myPSt = myConn.prepareStatement("SELECT `Name`, `Login`, `Password` FROM `players` WHERE `Login` = ? AND `Password` = ?");
-            myPSt.setString(1, login_box.getText());
-            myPSt.setString(2, String.valueOf(password_box.getPassword()));
-            ResultSet result = myPSt.executeQuery();  
-            //int intinsertedRows=PSt.executeUpdate("SELECT `Name`, `Login`, `Password` FROM `players` WHERE `Login` = ? AND `Password` = ?");
-            if (result.next()) {
-                jLabel5_message.setText("Registered user !");
-                jLabel5_message.setForeground(Color.GREEN);
-               
-            } else {
-                jLabel5_message.setText("Registration error");
+
+            if (!validateFirstName(imie_box.getText())) {
+                jLabel5_message.setText("Niepoprawne dane");
                 jLabel5_message.setForeground(Color.RED);
-               
+            } else if (!validatePassword(String.valueOf(password_box.getPassword()))) {
+                jLabel5_message.setText("Hasło nie spełnia wymagań");
+                jLabel5_message.setForeground(Color.RED);
+            } else {
+
+                PSt.execute();
+                myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gra", "root", "student");
+                myPSt = myConn.prepareStatement("SELECT `Name`, `Login`, `Password` FROM `players` WHERE `Login` = ? AND `Password` = ?");
+                myPSt.setString(1, login_box.getText());
+                myPSt.setString(2, String.valueOf(password_box.getPassword()));
+                ResultSet result = myPSt.executeQuery();
+                //int intinsertedRows=PSt.executeUpdate("SELECT `Name`, `Login`, `Password` FROM `players` WHERE `Login` = ? AND `Password` = ?");
+                if (result.next()) {
+                    jLabel5_message.setText("Registered user !");
+                    jLabel5_message.setForeground(Color.GREEN);
+
+                } else {
+                    jLabel5_message.setText("Registration error");
+                    jLabel5_message.setForeground(Color.RED);
+
+                }
             }
-            
-            
+        } catch (SQLException sqlex) {
+            System.out.println(sqlex.getMessage());
+            jLabel5_message.setText(sqlex.getMessage());
+            jLabel5_message.setForeground(Color.RED);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
 
         }
-    
-   catch ( SQLException sqlex )
-   {
-      System.out.println(sqlex.getMessage());
-      jLabel5_message.setText(sqlex.getMessage());
-      jLabel5_message.setForeground(Color.RED);
-     
-   }
-   catch(Exception e)
-   {
-      System.out.println(e.getMessage());
-     
-   }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField imie_box;
@@ -192,4 +191,11 @@ public class Rejestracja extends javax.swing.JFrame {
     private javax.swing.JTextField login_box;
     private javax.swing.JPasswordField password_box;
     // End of variables declaration//GEN-END:variables
+public static boolean validateFirstName(String firstName) {
+        return firstName.matches("[a-zA-z\\-'\\s]+");
+    }
+
+    public static boolean validatePassword(String pass) {
+        return pass.matches("((?=.*[a-z])(?=.*\\d)(?=.*[A-Z]).{1,100})");
+    }
 }
