@@ -40,14 +40,14 @@ public class Plansza extends JPanel {
     public Plansza() {
 
         //System.out.println("Przed");
-        ImageIcon j = new ImageIcon("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\car.png");
+        ImageIcon j = new ImageIcon("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\car.png");
         bg = j.getImage();
-        File file = new File("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\mapa.bmp");
-        try {
-            image = ImageIO.read(file);
-        } catch (IOException ex) {
-            Logger.getLogger(Plansza.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        File file = new File("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\mapa.bmp");
+//        try {
+//            image = ImageIO.read(file);
+//        } catch (IOException ex) {
+//            Logger.getLogger(Plansza.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         car.setX(150);
         car.setY(150);
         addKeyListener(new KeyListener() {
@@ -190,30 +190,16 @@ public class Plansza extends JPanel {
     }
 
     public final void goUp() {
-        //System.out.println("Klawisz góra");
-   
-         car.moveForward();
-         
-        
-
+      car.moveForward();
     }
-
     public final void goDown() {
-        car.moveBackword();
-        
-
-    }
-    
+        car.moveBackword();     
+    }  
     public final void goLeft() {
-        tmpAngle -= 1;
-        
-
+        tmpAngle -= 1;     
     }
-
     public final void goRight() {
-        tmpAngle += 1;
-      
-
+        tmpAngle += 1;    
     }
 
 }

@@ -13,6 +13,7 @@ public class Samochod {
     private double next_x, next_y;
     public BufferedImage image;
     public double ac;
+    public boolean move_true = true;
 
     // constructor
     public Samochod(double x, double y, double a, int w, int h) {
@@ -29,6 +30,12 @@ public class Samochod {
     // returning all the necessary value of this class
     public double getX() {
         return x;
+    }
+    public boolean get_move_true() {
+        return move_true;
+    }
+    public void set_move_true(boolean move) {
+        this.move_true = move;
     }
 
     public double getY() {
@@ -67,26 +74,22 @@ public class Samochod {
         ac=1.3;
     
     }
-
-    // move toward the angle
     // //forward
     public void moveForward() {
         //next_x += Math.cos(a) * 1.3f;
        // next_y += Math.sin(a) * 1.3f;
-       
-            x += Math.cos(a) * ac;
-            y += Math.sin(a) * ac;
-      
-    }
+      if(move_true){
+            x += Math.cos(a)*ac;
+            y += Math.sin(a)*ac;
+      }
+          }
     // //backward
 
     public void moveBackword() {
-       // next_x -= Math.cos(a) * 1.3f;
-        //next_y -= Math.sin(a) * 1.3f;
-       
-            x -= Math.cos(a) * ac;
-            y -= Math.sin(a) * ac;
-        
+       if(move_true){
+            x -= Math.cos(a)*ac;
+            y -= Math.sin(a)*ac;
+       }
     }
 
     
