@@ -145,15 +145,20 @@ public class Projekt2 extends javax.swing.JFrame {
                 głowne.setDefaultCloseOperation(EXIT_ON_CLOSE);
                 głowne.setVisible(true);
                 
-                */
+                
                 PLansza_frame frame = new PLansza_frame();
                 Dimension d2 = Toolkit.getDefaultToolkit().getScreenSize();
                 frame.setLocation(d2.width/2-600, d2.height/2-325);
                 frame.setSize(1200, 650);
                 frame.setVisible(true);
                 frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-               
-                
+               */
+                Konfiguracja konf = new Konfiguracja();
+                Dimension d2 = Toolkit.getDefaultToolkit().getScreenSize();
+                konf.setLocation(d2.width/2-300, d2.height/2-200);
+                konf.setSize(700, 450);
+                konf.setVisible(true);
+                konf.setDefaultCloseOperation(EXIT_ON_CLOSE);
        
             }
         });

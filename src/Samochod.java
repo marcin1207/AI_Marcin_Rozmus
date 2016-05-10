@@ -29,7 +29,7 @@ public class Samochod {
 
     // returning all the necessary value of this class
     public double getX() {
-        return x;
+        return this.x;
     }
     public boolean get_move_true() {
         return move_true;
@@ -39,7 +39,7 @@ public class Samochod {
     }
 
     public double getY() {
-        return y;
+        return this.y;
     }
     public void setX(double xx) {
        this.x = xx;

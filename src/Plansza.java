@@ -33,21 +33,54 @@ public class Plansza extends JPanel {
     private double speed = 1.0;
     private int tmpAngle = 0;
     public AffineTransform at;
-    public Samochod car = new Samochod(0, 0, 0, 27, 60);
+    public int auto;
+    public int mapa;
+    public ImageIcon j;
+    
+    public Samochod car = new Samochod(0, 0, 0, 60, 27);
     public BufferedImage image;
+    public File file;
     Image bg;
 
-    public Plansza() {
-
+    public Plansza(int auto1, int mapa1) {
+        this.mapa = mapa1;
+        this.auto = auto1;
         //System.out.println("Przed");
-        ImageIcon j = new ImageIcon("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\car.png");
+        switch (auto) {
+            case 1:
+                j = new ImageIcon("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\AUTA\\ambulance.png");
+                break;
+            case 2:
+                j= new ImageIcon("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\AUTA\\bugati.png");
+                break;
+            case 3:
+                j = new ImageIcon("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\AUTA\\car.png");
+                break;
+            case 4:
+                j = new ImageIcon("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\AUTA\\police.png");
+                break;
+            default:
+                break;
+        }
         bg = j.getImage();
-//        File file = new File("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\mapa.bmp");
-//        try {
-//            image = ImageIO.read(file);
-//        } catch (IOException ex) {
-//            Logger.getLogger(Plansza.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        switch (mapa) {
+            case 1:
+                file = new File("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\MAPY\\mapa-kolor.jpg");
+                break;
+            case 2:
+                file = new File("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\MAPY\\mapa2-kolor.jpg");
+                break;
+            case 3:
+                file = new File("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\MAPY\\mapa3-kolor.jpg");
+                break;
+            default:
+                break;
+        }
+       try {
+            image = ImageIO.read(file);
+        } catch (IOException ex) {
+            Logger.getLogger(Plansza.class.getName()).log(Level.SEVERE, null, ex);
+       }
         car.setX(150);
         car.setY(150);
         addKeyListener(new KeyListener() {
@@ -162,7 +195,7 @@ public class Plansza extends JPanel {
         };
         thread.start();
 
-        Thread pozycja = new ThreadPosition(car);
+        Thread pozycja = new ThreadPosition(car,auto,mapa);
         
         pozycja.start();
         
@@ -180,7 +213,7 @@ public class Plansza extends JPanel {
         g2d.setColor(Color.white);
 
         // rotating the hero, rotation point is the middle of the square
-        g2d.rotate(Math.toRadians(90) + car.getA(), car.getX() + car.getW() / 2, car.getY()
+        g2d.rotate( car.getA(), car.getX() + car.getW() / 2, car.getY()
                 + car.getH() / 2);
         
        

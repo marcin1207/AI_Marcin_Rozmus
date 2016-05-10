@@ -7,10 +7,13 @@ import javax.swing.JPanel;
  
 
 public class PLansza_frame  extends JFrame{
-
-    public PLansza_frame(){
+    public int auto;
+    public int mapa;
+    public PLansza_frame(int auto, int mapa){
+        this.auto=auto;
+        this.mapa = mapa;
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        Plansza plansza = new Plansza();
+        Plansza plansza = new Plansza(auto, mapa);
         Dimension d2 = Toolkit.getDefaultToolkit().getScreenSize();
         //plansza.setLocation(d2.width/2-500, d2.height/2-400);
         //plansza.setSize(1000, 800);

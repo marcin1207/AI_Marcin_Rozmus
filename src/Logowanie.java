@@ -217,12 +217,12 @@ public class Logowanie extends javax.swing.JFrame {
     private void jButton2_MessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_MessageActionPerformed
         timer2.start();
         
-        PLansza_frame frame = new PLansza_frame();
+                Konfiguracja konf = new Konfiguracja();
                 Dimension d2 = Toolkit.getDefaultToolkit().getScreenSize();
-                frame.setLocation(d2.width/2-600, d2.height/2-300);
-                frame.setSize(1200, 600);
-                frame.setVisible(true);
-                frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                konf.setLocation(d2.width/2-300, d2.height/2-200);
+                konf.setSize(700, 450);
+                konf.setVisible(true);
+                konf.setDefaultCloseOperation(EXIT_ON_CLOSE);
                 this.dispose();
         
         
