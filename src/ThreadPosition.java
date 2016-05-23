@@ -31,7 +31,7 @@ public class ThreadPosition extends Thread {
             mapa();
             try {
                 krawiedzie(car);
-                Thread.sleep(100);
+                Thread.sleep(50);
             } catch (InterruptedException ex) {
                 Logger.getLogger(ThreadPosition.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -57,32 +57,35 @@ public class ThreadPosition extends Thread {
         } catch (IOException ex) {
             Logger.getLogger(Plansza.class.getName()).log(Level.SEVERE, null, ex);
         }
-        car.setAcceleration();
+       // car.setAcceleration();
         int clr = image.getRGB((int) car.getX(), (int) car.getY());
         kolor = (clr & 0x00ffffff) >> 16;
-        if (kolor == 0) {
-            System.out.println("white");
-            car.setAcceleration();
-        }
         if (kolor == 255) {
-            System.out.println("black");
-            car.returnAcceleration();
+            //System.out.println("white");
+            if(car.returnAcceleration()==(0.5));
+            else if(car.returnAcceleration()>=0.5) car.ac -=0.08;
         }
+        if (kolor == 0) {
+            //System.out.println("black");
+            if(car.returnAcceleration()==(1.3));
+            else if(car.returnAcceleration()<=1.3) car.ac +=0.08;
+        }
+        //System.out.println(car.ac);
         // System.out.println(System.currentTimeMillis());
     }
 
     private void krawiedzie(Samochod car) {
         xx = car.getX() + 10*Math.cos(car.getA());
         yy =car.getY() + 10*Math.sin(car.getA());
-        System.out.println(xx);
+       // System.out.println(xx);
         //System.out.println(car.getA());
-        System.out.println(yy);
+        //System.out.println(yy);
         //System.out.println(car.getX());
         //System.out.println(car.getY());
         if (xx < 1100) {
             if (yy < 550) {
                 car.set_move_true(true);
-                System.out.println("ruch");
+                //System.out.println("ruch");
             } else {
                 car.set_move_true(false);
             }
@@ -93,7 +96,7 @@ public class ThreadPosition extends Thread {
         if (xx >0) {
             if (yy < 570) {
                 car.set_move_true(true);
-                System.out.println("ruch");
+                //System.out.println("ruch");
             } else {
                 car.set_move_true(false);
             }

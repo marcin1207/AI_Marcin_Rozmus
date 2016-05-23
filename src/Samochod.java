@@ -12,7 +12,7 @@ public class Samochod {
     private int w, h; // width and height
     private double next_x, next_y;
     public BufferedImage image;
-    public double ac;
+    public double ac=1.3;
     public boolean move_true = true;
 
     // constructor
@@ -66,12 +66,9 @@ public class Samochod {
 
         a = Math.toRadians(aa);
     }
-    public void setAcceleration(){
-        ac=0.65;
-    
-    }
-    public void returnAcceleration(){
-        ac=1.3;
+   
+    public double returnAcceleration(){
+        return ac;
     
     }
     // //forward

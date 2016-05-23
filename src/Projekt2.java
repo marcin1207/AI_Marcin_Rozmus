@@ -1,112 +1,146 @@
 
+import java.awt.Button;
+import java.awt.Color;
+
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.geom.AffineTransform;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
-
 
 public class Projekt2 extends javax.swing.JFrame {
 
+    int rozmiar1 = 800;
+    int rozmiar2 = 600;
+    int x=50;
+    public ImageIcon kolo;
+    public Image bg;
+    public double theta=0;
+    public BufferedImage image;
+    public  static Button btn1, btn2;
+    public File file;
+
     public Projekt2() {
-        initComponents();
-        
-    }
-
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-
-        jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(800, 600));
-        setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(800, 600));
-        setResizable(false);
-        setSize(new java.awt.Dimension(800, 600));
-        getContentPane().setLayout(null);
-
-        jPanel1.setBackground(new java.awt.Color(255, 0, 51));
-        jPanel1.setAlignmentX(0.0F);
-        jPanel1.setAlignmentY(0.0F);
-        jPanel1.setMaximumSize(new java.awt.Dimension(800, 600));
-        jPanel1.setMinimumSize(new java.awt.Dimension(800, 600));
-        jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
-        jPanel1.setLayout(null);
-
-        jButton2.setAlignmentY(0.0F);
-        jButton2.setLabel("Rejestracja");
-        jButton2.setMaximumSize(new java.awt.Dimension(100, 40));
-        jButton2.setMinimumSize(new java.awt.Dimension(100, 40));
-        jButton2.setPreferredSize(new java.awt.Dimension(100, 40));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(490, 420, 100, 40);
-
-        jButton1.setAlignmentY(0.0F);
-        jButton1.setLabel("Logowanie");
-        jButton1.setMaximumSize(new java.awt.Dimension(100, 40));
-        jButton1.setMinimumSize(new java.awt.Dimension(100, 40));
-        jButton1.setPreferredSize(new java.awt.Dimension(100, 40));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(150, 420, 100, 40);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gfx/tlo.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 800, 600);
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 800, 600);
-
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        
-        EventQueue.invokeLater(new Runnable() {
+        btn1 = new Button();
+       
+        btn1.setBounds(100, 400, 90, 35);
+        btn1.setVisible(true);
+        btn1.setFocusable(true);
+        btn1.setLabel("Logowanie");
+        btn1.setForeground(Color.cyan);
+        btn1.setBackground(Color.DARK_GRAY);
+        btn1.addActionListener(new ActionListener() {
             @Override
-            public void run() {
-                dispose();
-                Logowanie logowanie = new Logowanie();   
-                Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-                logowanie.setLocation(d.width/2-400, d.height/2-300);
-                logowanie.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                logowanie.setVisible(true);
-                        
+            public void actionPerformed(ActionEvent e) {
+                EventQueue.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        dispose();
+                        Logowanie logowanie = new Logowanie();
+                        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+                        logowanie.setLocation(d.width / 2 - 400, d.height / 2 - 300);
+                        logowanie.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                        logowanie.setVisible(true);
+
+                    }
+                });
             }
         });
-        
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-                
+        btn2 = new Button();
+        btn2.setBounds(600, 400, 90, 35);
+        btn2.setVisible(true);
+        btn2.setFocusable(true);
+        btn2.setLabel("Rejestracja");
+        btn2.setForeground(Color.cyan);
+        btn2.setBackground(Color.DARK_GRAY);
+        btn2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
                 Rejestracja okno = new Rejestracja();
                 Dimension d3 = Toolkit.getDefaultToolkit().getScreenSize();
-                okno.setLocation(d3.width/2-400, d3.height/2-300);
-                okno.setSize(800,600);
+                okno.setLocation(d3.width / 2 - 400, d3.height / 2 - 300);
+                okno.setSize(800, 600);
                 okno.setVisible(true);
                 okno.setDefaultCloseOperation(EXIT_ON_CLOSE);
                 okno.setFocusable(true);
                 dispose();
-                
-                
-    }//GEN-LAST:event_jButton2ActionPerformed
+            }
+        });
+
+        initComponents();
+        file = new File("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\tlo.jpg");
+        kolo = new ImageIcon("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\wheel2.png");
+        bg = kolo.getImage();
+        try {
+            image = ImageIO.read(file);
+        } catch (IOException ex) {
+            Logger.getLogger(Projekt2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Thread animacja = new Thread(){
+         
+            @Override
+            public void run(){
+                while(true){
+                RuchKoła();
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Projekt2.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            };
+        };
+        animacja.start(); 
+    }
+    private void RuchKoła(){
+       theta+=5;
+       x+=3;
+       repaint();
+         
+    }
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(800, 600));
+        setResizable(false);
+        setSize(new java.awt.Dimension(800, 600));
+        getContentPane().setLayout(null);
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    
+
+    public void paint(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
+        g.drawImage(image, 0, 0, 800, 600, null);
+        
+        AffineTransform transform = new AffineTransform();
+        //g2d.translate(50, 50);
+        transform.translate(x, 370);
+       
+        transform.rotate(Math.toRadians(theta),50,50);
+        
+        g2d.drawImage(bg, transform, null);
+        //g2d.translate(-50, -50);
+        //g2d.drawImage(bg, 300, 400, null);
+        
+        
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -134,40 +168,35 @@ public class Projekt2 extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
-                /*
+
                 Projekt2 głowne = new Projekt2();
                 Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-                głowne.setLocation(d.width/2-400, d.height/2-300);
+                głowne.setLocation(d.width / 2 - 400, d.height / 2 - 300);
                 głowne.setDefaultCloseOperation(EXIT_ON_CLOSE);
                 głowne.setVisible(true);
-                
-                
+                głowne.add(btn1);
+                głowne.add(btn2);
+                /*
                 PLansza_frame frame = new PLansza_frame();
                 Dimension d2 = Toolkit.getDefaultToolkit().getScreenSize();
                 frame.setLocation(d2.width/2-600, d2.height/2-325);
                 frame.setSize(1200, 650);
                 frame.setVisible(true);
                 frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-               */
+                
                 Konfiguracja konf = new Konfiguracja();
                 Dimension d2 = Toolkit.getDefaultToolkit().getScreenSize();
                 konf.setLocation(d2.width/2-300, d2.height/2-200);
                 konf.setSize(700, 450);
                 konf.setVisible(true);
                 konf.setDefaultCloseOperation(EXIT_ON_CLOSE);
-       
+                 */
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

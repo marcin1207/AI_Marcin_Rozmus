@@ -12,6 +12,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
@@ -45,6 +47,9 @@ public class Plansza extends JPanel {
     public Plansza(int auto1, int mapa1) {
         this.mapa = mapa1;
         this.auto = auto1;
+       
+        
+        
         //System.out.println("Przed");
         switch (auto) {
             case 1:
@@ -116,6 +121,7 @@ public class Plansza extends JPanel {
                     default:
                         break;
                 }
+                
             }
 
             @Override
@@ -149,7 +155,7 @@ public class Plansza extends JPanel {
         Thread thread = new Thread() {
             @Override
             public void run() {
-                // TODO: wstawic zmienną podtrzymującą
+                
                 while (true) {
                     if (Plansza.this.up) {
 
@@ -199,7 +205,8 @@ public class Plansza extends JPanel {
         
         pozycja.start();
         
-        
+      //Odtwarzacz muzyka = new Odtwarzacz();
+      //muzyka.play();
     }
 
     @Override
@@ -217,7 +224,7 @@ public class Plansza extends JPanel {
                 + car.getH() / 2);
         
        
-        g2d.drawImage(bg, (int) car.getX(), (int) car.getY(), (int) car.getW(), (int) car.getH(), null);
+       g2d.drawImage(bg, (int) car.getX(), (int) car.getY(), (int) car.getW(), (int) car.getH(), null); 
 
         g2d.setTransform(old);
     }
