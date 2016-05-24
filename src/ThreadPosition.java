@@ -77,32 +77,15 @@ public class ThreadPosition extends Thread {
     private void krawiedzie(Samochod car) {
         xx = car.getX() + 10*Math.cos(car.getA());
         yy =car.getY() + 10*Math.sin(car.getA());
-       // System.out.println(xx);
-        //System.out.println(car.getA());
-        //System.out.println(yy);
-        //System.out.println(car.getX());
-        //System.out.println(car.getY());
-        if (xx < 1100) {
-            if (yy < 550) {
-                car.set_move_true(true);
-                //System.out.println("ruch");
-            } else {
-                car.set_move_true(false);
-            }
-        } else {
-            car.set_move_true(false);
-        }
+        //prawo
+        if(xx>0){
+            if(yy>0)
+                if(xx<1100) {
+                    if(yy<570) car.move_true = true;                     
+                } else car.move_true = false;
+        }else car.move_true = false;
         
-        if (xx >0) {
-            if (yy < 570) {
-                car.set_move_true(true);
-                //System.out.println("ruch");
-            } else {
-                car.set_move_true(false);
-            }
-        } else {
-            car.set_move_true(false);
-        }
+        
         
         xx=0;
         yy=0;

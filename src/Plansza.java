@@ -86,7 +86,7 @@ public class Plansza extends JPanel {
         } catch (IOException ex) {
             Logger.getLogger(Plansza.class.getName()).log(Level.SEVERE, null, ex);
        }
-        car.setX(150);
+        car.setX(100);
         car.setY(150);
         addKeyListener(new KeyListener() {
             @Override
@@ -205,6 +205,17 @@ public class Plansza extends JPanel {
         
         pozycja.start();
         
+        Thread task1 = new Thread() {
+            @Override
+            public void run() {
+                Odtwarzacz muzyka = new Odtwarzacz();
+                muzyka.play();
+            };
+        };
+    task1.start();
+        
+                
+        
       //Odtwarzacz muzyka = new Odtwarzacz();
       //muzyka.play();
     }
@@ -228,7 +239,6 @@ public class Plansza extends JPanel {
 
         g2d.setTransform(old);
     }
-
     public final void goUp() {
       car.moveForward();
     }

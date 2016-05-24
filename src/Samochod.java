@@ -17,14 +17,12 @@ public class Samochod {
 
     // constructor
     public Samochod(double x, double y, double a, int w, int h) {
-
         this.x = x;
         this.y = y;
         this.a = a;
         this.w = w;
         this.h = h;
-        
-        
+     
     }
 
     // returning all the necessary value of this class
@@ -37,14 +35,12 @@ public class Samochod {
     public void set_move_true(boolean move) {
         this.move_true = move;
     }
-
     public double getY() {
         return this.y;
     }
     public void setX(double xx) {
        this.x = xx;
     }
-
     public void setY(double yy) {
         this.y = yy;
     }

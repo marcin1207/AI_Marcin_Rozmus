@@ -1,28 +1,38 @@
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.Player;
+import sun.audio.AudioPlayer;
+
+import sun.audio.AudioStream;
 
 
 
 public class Odtwarzacz {
-    public FileInputStream fis;
-    public   Player playMP3;
-   
+        public InputStream in;
+        public AudioStream as;
+        public File audio = new File("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\audio\\sound.wav");
+      
+    public Odtwarzacz(){
+        try {
+                in = new FileInputStream(audio); 
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Odtwarzacz.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                    as = new AudioStream(in);
+                } catch (IOException ex) {
+                    Logger.getLogger(Odtwarzacz.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            
+        
+    }    
    public void play(){
-       try {
-          fis = new FileInputStream("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\audio\\music1.mp3");
-          playMP3 = new Player(fis);
-          playMP3.play();
-          
-      } catch (FileNotFoundException ex) {
-          Logger.getLogger(Odtwarzacz.class.getName()).log(Level.SEVERE, null, ex);
-      } catch (JavaLayerException ex) {
-          Logger.getLogger(Odtwarzacz.class.getName()).log(Level.SEVERE, null, ex);
-      }
-   }
-    
+            
+    AudioPlayer.player.start(as);
+}
 }

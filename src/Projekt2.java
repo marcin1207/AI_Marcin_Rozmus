@@ -24,14 +24,17 @@ public class Projekt2 extends javax.swing.JFrame {
 
     int rozmiar1 = 800;
     int rozmiar2 = 600;
-    int x=50;
+    int x=0;
     public ImageIcon kolo;
     public Image bg;
     public double theta=0;
     public BufferedImage image;
     public  static Button btn1, btn2;
     public File file;
-
+    public Graphics bg2;
+    public Image bufor;
+    public boolean lewo=true, prawo=false;
+    
     public Projekt2() {
         btn1 = new Button();
        
@@ -83,6 +86,7 @@ public class Projekt2 extends javax.swing.JFrame {
         file = new File("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\tlo.jpg");
         kolo = new ImageIcon("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\wheel2.png");
         bg = kolo.getImage();
+        
         try {
             image = ImageIO.read(file);
         } catch (IOException ex) {
@@ -93,9 +97,26 @@ public class Projekt2 extends javax.swing.JFrame {
             @Override
             public void run(){
                 while(true){
-                RuchKoła();
+                    
+                  if(prawo)  {
+                      if(x<700)
+                      RuchKoła();
+                      else{
+                      lewo =true;
+                      prawo=false;
+                      }
+                  }
+                  else if(lewo){
+                  if(x>0) RuchKoła2();
+                  else{
+                      lewo=false;
+                      prawo=true;
+                  }
+                  }
+                    
+                
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(80);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(Projekt2.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -107,6 +128,12 @@ public class Projekt2 extends javax.swing.JFrame {
     private void RuchKoła(){
        theta+=5;
        x+=3;
+       repaint();
+         
+    }
+    private void RuchKoła2(){
+       theta-=5;
+       x-=3;
        repaint();
          
     }
@@ -128,10 +155,9 @@ public class Projekt2 extends javax.swing.JFrame {
     public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         g.drawImage(image, 0, 0, 800, 600, null);
-        
-        AffineTransform transform = new AffineTransform();
+         AffineTransform transform = new AffineTransform();
         //g2d.translate(50, 50);
-        transform.translate(x, 370);
+        transform.translate(x, 500);
        
         transform.rotate(Math.toRadians(theta),50,50);
         
@@ -141,6 +167,7 @@ public class Projekt2 extends javax.swing.JFrame {
         
         
     }
+    
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -170,7 +197,7 @@ public class Projekt2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-
+                /*
                 Projekt2 głowne = new Projekt2();
                 Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
                 głowne.setLocation(d.width / 2 - 400, d.height / 2 - 300);
@@ -178,21 +205,21 @@ public class Projekt2 extends javax.swing.JFrame {
                 głowne.setVisible(true);
                 głowne.add(btn1);
                 głowne.add(btn2);
-                /*
+                
                 PLansza_frame frame = new PLansza_frame();
                 Dimension d2 = Toolkit.getDefaultToolkit().getScreenSize();
                 frame.setLocation(d2.width/2-600, d2.height/2-325);
                 frame.setSize(1200, 650);
                 frame.setVisible(true);
                 frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                
+                */
                 Konfiguracja konf = new Konfiguracja();
                 Dimension d2 = Toolkit.getDefaultToolkit().getScreenSize();
                 konf.setLocation(d2.width/2-300, d2.height/2-200);
                 konf.setSize(700, 450);
                 konf.setVisible(true);
                 konf.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                 */
+                 
             }
         });
     }
