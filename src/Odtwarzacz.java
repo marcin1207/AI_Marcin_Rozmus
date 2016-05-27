@@ -7,7 +7,6 @@ import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import sun.audio.AudioPlayer;
-
 import sun.audio.AudioStream;
 
 
@@ -15,7 +14,7 @@ import sun.audio.AudioStream;
 public class Odtwarzacz {
         public InputStream in;
         public AudioStream as;
-        public File audio = new File("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\audio\\sound.wav");
+        public File audio = new File("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\audio\\sound.wav");
       
     public Odtwarzacz(){
         try {

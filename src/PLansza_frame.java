@@ -16,7 +16,7 @@ public class PLansza_frame  extends JFrame{
         Plansza plansza = new Plansza(auto, mapa);
         Dimension d2 = Toolkit.getDefaultToolkit().getScreenSize();
         //plansza.setLocation(d2.width/2-500, d2.height/2-400);
-        //plansza.setSize(1000, 800);
+       // plansza.setSize(1000, 800);
         plansza.setFocusable(true);
         plansza.setVisible(true);
         plansza.setDoubleBuffered(true);

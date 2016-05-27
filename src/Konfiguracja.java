@@ -148,7 +148,7 @@ public class Konfiguracja extends javax.swing.JFrame {
                 PLansza_frame frame = new PLansza_frame(auto,mapa);
                 Dimension  d2 = Toolkit.getDefaultToolkit().getScreenSize();
                 frame.setLocation(d2.width/2-600, d2.height/2-325);
-                frame.setSize(1200, 650);
+                frame.setSize(1215, 685);
                 frame.setVisible(true);
                 frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
                    this.dispose();

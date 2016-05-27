@@ -83,8 +83,8 @@ public class Projekt2 extends javax.swing.JFrame {
         });
 
         initComponents();
-        file = new File("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\tlo.jpg");
-        kolo = new ImageIcon("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\wheel2.png");
+        file = new File("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\tlo.jpg");
+        kolo = new ImageIcon("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\wheel2.png");
         bg = kolo.getImage();
         
         try {
@@ -205,21 +205,15 @@ public class Projekt2 extends javax.swing.JFrame {
                 głowne.setVisible(true);
                 głowne.add(btn1);
                 głowne.add(btn2);
+               */
                 
-                PLansza_frame frame = new PLansza_frame();
-                Dimension d2 = Toolkit.getDefaultToolkit().getScreenSize();
-                frame.setLocation(d2.width/2-600, d2.height/2-325);
-                frame.setSize(1200, 650);
-                frame.setVisible(true);
-                frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                */
                 Konfiguracja konf = new Konfiguracja();
                 Dimension d2 = Toolkit.getDefaultToolkit().getScreenSize();
                 konf.setLocation(d2.width/2-300, d2.height/2-200);
                 konf.setSize(700, 450);
                 konf.setVisible(true);
                 konf.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                 
+                
             }
         });
     }

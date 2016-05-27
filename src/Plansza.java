@@ -53,16 +53,16 @@ public class Plansza extends JPanel {
         //System.out.println("Przed");
         switch (auto) {
             case 1:
-                j = new ImageIcon("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\AUTA\\ambulance.png");
+                j = new ImageIcon("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\AUTA\\ambulance.png");
                 break;
             case 2:
-                j= new ImageIcon("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\AUTA\\bugati.png");
+                j= new ImageIcon("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\AUTA\\bugati.png");
                 break;
             case 3:
-                j = new ImageIcon("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\AUTA\\car.png");
+                j = new ImageIcon("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\AUTA\\car.png");
                 break;
             case 4:
-                j = new ImageIcon("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\AUTA\\police.png");
+                j = new ImageIcon("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\AUTA\\police.png");
                 break;
             default:
                 break;
@@ -70,13 +70,13 @@ public class Plansza extends JPanel {
         bg = j.getImage();
         switch (mapa) {
             case 1:
-                file = new File("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\MAPY\\mapa-kolor.jpg");
+                file = new File("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\MAPY\\mapa-kolor.jpg");
                 break;
             case 2:
-                file = new File("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\MAPY\\mapa2-kolor.jpg");
+                file = new File("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\MAPY\\mapa2-kolor.jpg");
                 break;
             case 3:
-                file = new File("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\MAPY\\mapa3-kolor.jpg");
+                file = new File("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\MAPY\\mapa3-kolor.jpg");
                 break;
             default:
                 break;

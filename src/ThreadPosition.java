@@ -41,13 +41,13 @@ public class ThreadPosition extends Thread {
     private void mapa() {
            switch (mapa) {
             case 1:
-                file = new File("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\MAPY\\mapa.bmp");
+                file = new File("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\MAPY\\mapa.bmp");
                 break;
             case 2:
-                file = new File("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\MAPY\\mapa2.bmp");
+                file = new File("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\MAPY\\mapa2.bmp");
                 break;
             case 3:
-                file = new File("C:\\Users\\Marcin\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\MAPY\\mapa3.bmp");
+                file = new File("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\MAPY\\mapa3.bmp");
                 break;
             default:
                 break;
