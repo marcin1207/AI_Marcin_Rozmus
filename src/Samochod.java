@@ -60,7 +60,7 @@ public class Samochod {
     // setting the angle
     public void setA(int aa) {
 
-        a = Math.toRadians(aa);
+        a = 2*Math.toRadians(aa);
     }
    
     public double returnAcceleration(){

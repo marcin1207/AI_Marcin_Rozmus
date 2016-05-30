@@ -31,8 +31,9 @@ public class Projekt2 extends javax.swing.JFrame {
     public BufferedImage image;
     public  static Button btn1, btn2;
     public File file;
-    public Graphics bg2;
-    public Image bufor;
+   
+   
+ 
     public boolean lewo=true, prawo=false;
     
     public Projekt2() {
@@ -117,6 +118,7 @@ public class Projekt2 extends javax.swing.JFrame {
                 
                     try {
                         Thread.sleep(80);
+                        repaint();
                     } catch (InterruptedException ex) {
                         Logger.getLogger(Projekt2.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -149,7 +151,9 @@ public class Projekt2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public void update(Graphics g){
+        paint(g);
+    }
     
 
     public void paint(Graphics g) {
@@ -197,7 +201,7 @@ public class Projekt2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                /*
+                
                 Projekt2 głowne = new Projekt2();
                 Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
                 głowne.setLocation(d.width / 2 - 400, d.height / 2 - 300);
@@ -205,15 +209,15 @@ public class Projekt2 extends javax.swing.JFrame {
                 głowne.setVisible(true);
                 głowne.add(btn1);
                 głowne.add(btn2);
-               */
-                
+              
+                /*
                 Konfiguracja konf = new Konfiguracja();
                 Dimension d2 = Toolkit.getDefaultToolkit().getScreenSize();
                 konf.setLocation(d2.width/2-300, d2.height/2-200);
                 konf.setSize(700, 450);
                 konf.setVisible(true);
                 konf.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                
+                */
             }
         });
     }

@@ -191,7 +191,8 @@ public class Plansza extends JPanel {
                     car.setA(tmpAngle);
 
                     try {
-                        Thread.sleep(4);
+                        Thread.sleep(10);
+                        repaint();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                         return;
@@ -238,6 +239,9 @@ public class Plansza extends JPanel {
        g2d.drawImage(bg, (int) car.getX(), (int) car.getY(), (int) car.getW(), (int) car.getH(), null); 
 
         g2d.setTransform(old);
+    }
+    public void update(Graphics g){
+        paint(g);
     }
     public final void goUp() {
       car.moveForward();

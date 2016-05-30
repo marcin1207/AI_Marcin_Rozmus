@@ -23,6 +23,7 @@ public class Odtwarzacz {
                 Logger.getLogger(Odtwarzacz.class.getName()).log(Level.SEVERE, null, ex);
             }
             try {
+                
                     as = new AudioStream(in);
                 } catch (IOException ex) {
                     Logger.getLogger(Odtwarzacz.class.getName()).log(Level.SEVERE, null, ex);
