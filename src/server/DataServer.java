@@ -10,6 +10,7 @@ import javax.swing.JTextArea;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JScrollPane;
@@ -54,20 +55,38 @@ public class DataServer extends javax.swing.JFrame {
         btn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                txt_box.append("Uruchomiono serwer\n");
-                Thread watek = new Thread("Serwer") {
+                
+                Thread watek;
+                watek = new Thread("Serwer") {
                     public void run() {
                         try {
                             listener = new ServerSocket(8192);
-                            txt_box.append("Sewer uruchomiony na porcie 8192");
-                             socket = listener.accept();
-                             System.out.println("Connection from: " + socket.getInetAddress());     
+                            txt_box.append("Sewer uruchomiony na porcie 8192\n");
+                            socket = listener.accept();
+                            txt_box.append("Connection from: " + socket.getInetAddress()+"\n");     
                             while (true) {
                                 in = new DataInputStream(socket.getInputStream());
-                                x = in.readDouble();
-                                y = in.readDouble();
-                                txt_box.append("X: "+Math.round(x)+"  Y: "+Math.round(y)+"\n");
-                                Thread.sleep(5);
+                                tmpx = in.readDouble();
+                                tmpy = in.readDouble();
+                                if(!Objects.equals(tmpx, x)){
+                                    if(!Objects.equals(tmpy, y))
+                                    {
+                                        x=tmpx;
+                                        y=tmpy;
+                                        txt_box.append("klient 1: X: "+Math.round(x)+"  Y: "+Math.round(y)+"\n");
+                                    }
+                                }else{
+                                    if(!Objects.equals(tmpy, y))
+                                    {
+                                        x=tmpx;
+                                        y=tmpy;
+                                        txt_box.append("klient 1: X: "+Math.round(x)+"  Y: "+Math.round(y)+"\n");
+                                    }
+                                }
+                                
+                               
+                                
+                                Thread.sleep(20);
                             }
 
                         } catch (IOException ex) {

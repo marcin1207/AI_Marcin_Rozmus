@@ -77,9 +77,9 @@ public class Logowanie extends javax.swing.JFrame {
         jPanel3.add(JLabel5_Message);
         JLabel5_Message.setBounds(60, 10, 380, 80);
 
-        jButton2_Message.setBackground(new java.awt.Color(102, 102, 102));
+        jButton2_Message.setBackground(new java.awt.Color(51, 0, 0));
         jButton2_Message.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton2_Message.setForeground(new java.awt.Color(0, 102, 204));
+        jButton2_Message.setForeground(new java.awt.Color(255, 255, 255));
         jButton2_Message.setText("OK");
         jButton2_Message.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +87,7 @@ public class Logowanie extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton2_Message);
-        jButton2_Message.setBounds(650, 20, 55, 29);
+        jButton2_Message.setBounds(650, 20, 80, 40);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 0, 0));
@@ -105,35 +105,35 @@ public class Logowanie extends javax.swing.JFrame {
         jPanel2.setLayout(null);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 102, 255));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Login: ");
         jPanel2.add(jLabel3);
         jLabel3.setBounds(80, 180, 70, 30);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 102, 255));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Password:");
         jPanel2.add(jLabel2);
         jLabel2.setBounds(80, 220, 100, 30);
 
         login_box.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        login_box.setForeground(new java.awt.Color(0, 102, 204));
+        login_box.setForeground(new java.awt.Color(51, 0, 0));
         login_box.setName("login_box"); // NOI18N
         jPanel2.add(login_box);
         login_box.setBounds(200, 180, 200, 30);
         login_box.getAccessibleContext().setAccessibleName("login_box");
 
         pass_box.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        pass_box.setForeground(new java.awt.Color(0, 102, 204));
+        pass_box.setForeground(new java.awt.Color(51, 0, 0));
         pass_box.setName("pass_box"); // NOI18N
         jPanel2.add(pass_box);
         pass_box.setBounds(200, 220, 200, 30);
         pass_box.getAccessibleContext().setAccessibleName("pass_box");
         pass_box.getAccessibleContext().setAccessibleDescription("");
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
+        jButton1.setBackground(new java.awt.Color(51, 0, 0));
         jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 102, 204));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Zaloguj");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,7 +143,7 @@ public class Logowanie extends javax.swing.JFrame {
         jPanel2.add(jButton1);
         jButton1.setBounds(430, 280, 110, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gfx/tlo.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gfx/tlo3.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.setAlignmentY(0.0F);
         jLabel1.setIconTextGap(0);

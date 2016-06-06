@@ -2,6 +2,10 @@
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
  
@@ -22,6 +26,11 @@ public class PLansza_frame  extends JFrame{
         plansza.setDoubleBuffered(true);
         this.add(plansza);
         this.pack();
+       
+
+            
+
+    
     
     
     }

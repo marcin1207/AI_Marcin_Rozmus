@@ -4,12 +4,10 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.geom.AffineTransform;
-import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -32,13 +30,10 @@ public class Plansza extends JPanel {
     private boolean left = false;
     private boolean right = false;
 
-    private double x = 100;
-    private double y = 100;
-    private int akt_x = 0;
-    private int akt_y = 0;
-    private double a = 0;
+    
+ 
     public double theta = 0;
-    private double speed = 1.0;
+  
     private int tmpAngle = 0;
     public AffineTransform at;
     public int auto,mapa,c,b,d,e;
@@ -66,7 +61,7 @@ public class Plansza extends JPanel {
         this.auto = auto1;
         int style = Font.BOLD;
 
-        font = new Font ("Arial", style , 14);
+        font = new Font ("Arial", style , 18);
           r = new Random();
          b=r.nextInt(1200);//X
          c=r.nextInt(650);//y
@@ -110,8 +105,9 @@ public class Plansza extends JPanel {
         }
         bonus = new ImageIcon("src\\gfx\\piorun.png");
         piorun= bonus.getImage();
-        car.setX(100);
-        car.setY(150);
+        car.setX(40);
+        car.setY(300);
+        tmpAngle=45;
         addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -265,19 +261,15 @@ public class Plansza extends JPanel {
                     System.out.println("Connection successful.");
                     siec=true;
                     
+                    
                 } catch (Exception ex) {
                      System.out.println("Bład przy połączeniu");
                      Thread.interrupted();
+ 
                      siec =false;
                   System.out.println("Zamknięto wątek");
                 }
-                finally{
-                    try {
-                        socket.close();
-                    } catch (IOException ex) {
-                        Logger.getLogger(Plansza.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
+                
                 
            
             while(siec){
@@ -295,15 +287,16 @@ public class Plansza extends JPanel {
                     
                 }
                 try {
-                    Thread.sleep(5);
+                    Thread.sleep(20);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Plansza.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                
             } 
         }
 
         };
-        //watek_siec.start();
+        watek_siec.start();
         Thread bonus = new Thread("Bonus"){
         public void run(){
             while(true){
@@ -330,8 +323,8 @@ public class Plansza extends JPanel {
         Graphics2D g2d = (Graphics2D) g;
         g.drawImage(image,0,0,1200,650,null);
         g2d.setFont(font);
-        
-        g2d.drawString("Czas: "+String.valueOf(czas)+ "s", 50, 100);
+        g2d.setColor(Color.orange);
+        g2d.drawString("Czas: "+String.valueOf(czas)+ "s", 50, 50);
         
         g2d.drawImage(piorun,b,c,40, 40, null); 
         g2d.drawImage(piorun,d,e,40, 40, null); 
@@ -341,7 +334,7 @@ public class Plansza extends JPanel {
         AffineTransform old = g2d.getTransform();
       
         
-        g2d.setColor(Color.white);
+        
 
         // rotating the hero, rotation point is the middle of the square
         g2d.rotate( car.getA(), car.getX() + car.getW() / 2, car.getY()+ car.getH() / 2);

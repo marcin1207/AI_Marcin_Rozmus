@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -31,18 +32,22 @@ public class Projekt2 extends javax.swing.JFrame {
     public BufferedImage image;
     public static Button btn1, btn2;
     public File file;
-
+    public Font font;
     public boolean lewo = true, prawo = false;
 
     public Projekt2() {
         btn1 = new Button();
 
-        btn1.setBounds(100, 400, 90, 35);
+        btn1.setBounds(100, 400, 100, 40);
         btn1.setVisible(true);
         btn1.setFocusable(true);
         btn1.setLabel("Logowanie");
-        btn1.setForeground(Color.cyan);
-        btn1.setBackground(Color.DARK_GRAY);
+        btn1.setForeground(Color.WHITE);
+        int style = Font.BOLD;
+
+        font = new Font ("Dialog", style , 14);
+        btn1.setFont(font);
+        btn1.setBackground(Color.getHSBColor(0, 1, (float) 0.1));
         btn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -65,8 +70,13 @@ public class Projekt2 extends javax.swing.JFrame {
         btn2.setVisible(true);
         btn2.setFocusable(true);
         btn2.setLabel("Rejestracja");
-        btn2.setForeground(Color.cyan);
-        btn2.setBackground(Color.DARK_GRAY);
+        btn2.setForeground(Color.WHITE);
+   
+
+  
+        btn2.setFont(font);
+        btn2.setBackground(Color.getHSBColor(0, 1, (float) 0.1));
+        
         btn2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -82,8 +92,8 @@ public class Projekt2 extends javax.swing.JFrame {
         });
 
         initComponents();
-        file = new File("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\tlo.jpg");
-        kolo = new ImageIcon("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\wheel2.png");
+        file = new File("src\\gfx\\tlo3.jpg");
+        kolo = new ImageIcon("src\\gfx\\wheel2.png");
         bg = kolo.getImage();
 
         try {
@@ -200,23 +210,23 @@ public class Projekt2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-/*
+
                 Projekt2 głowne = new Projekt2();
                 Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
                 głowne.setLocation(d.width / 2 - 400, d.height / 2 - 300);
                 głowne.setDefaultCloseOperation(EXIT_ON_CLOSE);
                 głowne.setVisible(true);
-
                 głowne.add(btn1);
                 głowne.add(btn2);
 
-                */
+                /*
                 Konfiguracja konf = new Konfiguracja();
                 Dimension d2 = Toolkit.getDefaultToolkit().getScreenSize();
                 konf.setLocation(d2.width/2-300, d2.height/2-200);
                 konf.setSize(700, 450);
                 konf.setVisible(true);
                 konf.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                   */
                  
             }
         });
