@@ -14,7 +14,7 @@ import sun.audio.AudioStream;
 public class Odtwarzacz {
         public InputStream in;
         public AudioStream as;
-        public File audio = new File("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\audio\\sound.wav");
+        public File audio = new File("src\\audio\\sound.wav");
       
     public Odtwarzacz(){
         try {
@@ -34,5 +34,6 @@ public class Odtwarzacz {
    public void play(){
             
     AudioPlayer.player.start(as);
+    
 }
 }

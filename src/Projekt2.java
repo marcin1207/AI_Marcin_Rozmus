@@ -24,21 +24,19 @@ public class Projekt2 extends javax.swing.JFrame {
 
     int rozmiar1 = 800;
     int rozmiar2 = 600;
-    int x=0;
+    int x = 0;
     public ImageIcon kolo;
     public Image bg;
-    public double theta=0;
+    public double theta = 0;
     public BufferedImage image;
-    public  static Button btn1, btn2;
+    public static Button btn1, btn2;
     public File file;
-   
-   
- 
-    public boolean lewo=true, prawo=false;
-    
+
+    public boolean lewo = true, prawo = false;
+
     public Projekt2() {
         btn1 = new Button();
-       
+
         btn1.setBounds(100, 400, 90, 35);
         btn1.setVisible(true);
         btn1.setFocusable(true);
@@ -87,35 +85,35 @@ public class Projekt2 extends javax.swing.JFrame {
         file = new File("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\tlo.jpg");
         kolo = new ImageIcon("C:\\Users\\MR\\Documents\\NetBeansProjects\\Java_lato_2015-2016_Marcin_Rozmus\\src\\gfx\\wheel2.png");
         bg = kolo.getImage();
-        
+
         try {
             image = ImageIO.read(file);
         } catch (IOException ex) {
             Logger.getLogger(Projekt2.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Thread animacja = new Thread(){
-         
+
+        Thread animacja = new Thread() {
+
             @Override
-            public void run(){
-                while(true){
-                    
-                  if(prawo)  {
-                      if(x<700)
-                      RuchKoła();
-                      else{
-                      lewo =true;
-                      prawo=false;
-                      }
-                  }
-                  else if(lewo){
-                  if(x>0) RuchKoła2();
-                  else{
-                      lewo=false;
-                      prawo=true;
-                  }
-                  }
-                    
-                
+            public void run() {
+                while (true) {
+
+                    if (prawo) {
+                        if (x < 700) {
+                            RuchKoła();
+                        } else {
+                            lewo = true;
+                            prawo = false;
+                        }
+                    } else if (lewo) {
+                        if (x > 0) {
+                            RuchKoła2();
+                        } else {
+                            lewo = false;
+                            prawo = true;
+                        }
+                    }
+
                     try {
                         Thread.sleep(80);
                         repaint();
@@ -123,22 +121,26 @@ public class Projekt2 extends javax.swing.JFrame {
                         Logger.getLogger(Projekt2.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-            };
+            }
+        ;
         };
-        animacja.start(); 
+        animacja.start();
     }
-    private void RuchKoła(){
-       theta+=5;
-       x+=3;
-       repaint();
-         
+
+    private void RuchKoła() {
+        theta += 5;
+        x += 3;
+        repaint();
+
     }
-    private void RuchKoła2(){
-       theta-=5;
-       x-=3;
-       repaint();
-         
+
+    private void RuchKoła2() {
+        theta -= 5;
+        x -= 3;
+        repaint();
+
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -151,27 +153,24 @@ public class Projekt2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void update(Graphics g){
+    public void update(Graphics g) {
         paint(g);
     }
-    
 
     public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         g.drawImage(image, 0, 0, 800, 600, null);
-         AffineTransform transform = new AffineTransform();
+        AffineTransform transform = new AffineTransform();
         //g2d.translate(50, 50);
         transform.translate(x, 500);
-       
-        transform.rotate(Math.toRadians(theta),50,50);
-        
+
+        transform.rotate(Math.toRadians(theta), 50, 50);
+
         g2d.drawImage(bg, transform, null);
         //g2d.translate(-50, -50);
         //g2d.drawImage(bg, 300, 400, null);
-        
-        
+
     }
-    
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -201,23 +200,24 @@ public class Projekt2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+/*
                 Projekt2 głowne = new Projekt2();
                 Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
                 głowne.setLocation(d.width / 2 - 400, d.height / 2 - 300);
                 głowne.setDefaultCloseOperation(EXIT_ON_CLOSE);
                 głowne.setVisible(true);
+
                 głowne.add(btn1);
                 głowne.add(btn2);
-              
-                /*
+
+                */
                 Konfiguracja konf = new Konfiguracja();
                 Dimension d2 = Toolkit.getDefaultToolkit().getScreenSize();
                 konf.setLocation(d2.width/2-300, d2.height/2-200);
                 konf.setSize(700, 450);
                 konf.setVisible(true);
                 konf.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                */
+                 
             }
         });
     }

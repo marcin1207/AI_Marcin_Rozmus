@@ -211,6 +211,14 @@ public class Logowanie extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Logowanie.class.getName()).log(Level.SEVERE, null, ex);
         }
+        finally{
+            try {
+                myPSt.close();
+                myConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Logowanie.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

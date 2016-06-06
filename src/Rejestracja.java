@@ -1,5 +1,7 @@
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Rejestracja extends javax.swing.JFrame {
 
@@ -15,6 +18,9 @@ public class Rejestracja extends javax.swing.JFrame {
      */
     public Rejestracja() {
         initComponents();
+        Graj_button.setEnabled(false);
+        
+        
 
     }
 
@@ -35,6 +41,7 @@ public class Rejestracja extends javax.swing.JFrame {
         imie_box = new javax.swing.JTextField();
         password_box = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
+        Graj_button = new javax.swing.JButton();
         jLabel5_message = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -100,6 +107,18 @@ public class Rejestracja extends javax.swing.JFrame {
         jPanel1.add(jButton1);
         jButton1.setBounds(430, 280, 170, 40);
 
+        Graj_button.setBackground(new java.awt.Color(51, 0, 0));
+        Graj_button.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        Graj_button.setForeground(new java.awt.Color(255, 255, 255));
+        Graj_button.setText("Graj");
+        Graj_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Graj_buttonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Graj_button);
+        Graj_button.setBounds(430, 330, 170, 40);
+
         jLabel5_message.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5_message.setAlignmentY(0.0F);
         jPanel1.add(jLabel5_message);
@@ -147,6 +166,8 @@ public class Rejestracja extends javax.swing.JFrame {
             } else {
 
                 PSt.execute();
+                
+               
                 myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gra", "root", "student");
                 myPSt = myConn.prepareStatement("SELECT `Name`, `Login`, `Password` FROM `players` WHERE `Login` = ? AND `Password` = ?");
                 myPSt.setString(1, login_box.getText());
@@ -156,6 +177,8 @@ public class Rejestracja extends javax.swing.JFrame {
                 if (result.next()) {
                     jLabel5_message.setText("Registered user !");
                     jLabel5_message.setForeground(Color.GREEN);
+                    Graj_button.setEnabled(true);
+                    
 
                 } else {
                     jLabel5_message.setText("Registration error");
@@ -172,14 +195,34 @@ public class Rejestracja extends javax.swing.JFrame {
             System.out.println(e.getMessage());
 
         }
+        finally{
+            try {
+                myPSt.close();
+                myConn.close();
+                PSt.close();
+                Conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Logowanie.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void Graj_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Graj_buttonActionPerformed
+        
+                Konfiguracja konf = new Konfiguracja();
+                Dimension d2 = Toolkit.getDefaultToolkit().getScreenSize();
+                konf.setLocation(d2.width/2-300, d2.height/2-200);
+                konf.setSize(700, 450);
+                konf.setVisible(true);
+                konf.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                this.dispose();
+    }//GEN-LAST:event_Graj_buttonActionPerformed
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Graj_button;
     private javax.swing.JTextField imie_box;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

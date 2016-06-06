@@ -1,10 +1,7 @@
 
+import java.awt.Rectangle;
+import java.awt.Shape;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 
 public class Samochod {
 
@@ -22,6 +19,7 @@ public class Samochod {
         this.a = a;
         this.w = w;
         this.h = h;
+        
      
     }
 
